@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <persistence-unit name="pUnit">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!--  TODO remove persist call, temporary entity to test
+         jee entitymanager integration -->
+        <class>com.infoshareacademy.searchengine.servlets.Car</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost/pawelDb"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="pawel"/>
+            <property name="hibernate.connection.password" value="pawel123"/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
