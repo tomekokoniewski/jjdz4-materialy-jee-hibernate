@@ -7,13 +7,12 @@
 
     <persistence-unit name="pUnit">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <jta-data-source>java:/MysqlDS</jta-data-source>
-        <class>com.infoshareacademy.searchengine.servlets.Car</class>
+        <jta-data-source>java:/mysql</jta-data-source>
         <properties>
             <property name="hibernate.archive.autodetection" value="class"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
-            <property name="hbm2ddl.auto" value="update"/>
+            <property name="hbm2ddl.auto" value="validate"/>
         </properties>
     </persistence-unit>
 </persistence>
