@@ -1,17 +1,26 @@
 package com.infoshareacademy.searchengine.dao;
 
 import com.infoshareacademy.searchengine.domain.User;
+import com.infoshareacademy.searchengine.interceptors.AddUserInterceptor;
+import com.infoshareacademy.searchengine.interceptors.AddUserSetGenderInterceptor;
 import com.infoshareacademy.searchengine.repository.UsersRepository;
 
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
+import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
-public class UsersRepositoryDaoBean implements UsersRepositoryDao {
+public class UsersRepositoryDaoBean implements UsersRepositoryDao, UsersRepositoryDaoRemote {
 
     @Override
-    public void addUser(User user) {
-        UsersRepository.getRepository().add(user);
+    @Interceptors({AddUserInterceptor.class, AddUserSetGenderInterceptor.class})
+    public boolean addUser(User user) {
+        if (!UsersRepository.contains(user)) {
+            UsersRepository.getRepository().add(user);
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -41,4 +50,12 @@ public class UsersRepositoryDaoBean implements UsersRepositoryDao {
         return UsersRepository.getRepository();
     }
 
+    @Override
+    public List<String> getUsersNames() {
+        List<String> usersNames = new ArrayList<>();
+        for (User user : getUsersList()) {
+            usersNames.add(user.getName());
+        }
+        return usersNames;
+    }
 }
