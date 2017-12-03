@@ -18,8 +18,17 @@ public class UsersRepositoryDaoBean implements UsersRepositoryDao {
 
     @Override
     public void addUser(User user) {
-        //TODO remove persist call, temporary entity to test
-        // jee entitymanager integration
+        List cars = entityManager.createQuery("from Car where model=:model")
+                .setParameter("model", "A222S")
+                .getResultList();
+
+        entityManager.createQuery("update Car c set model=:model where model=:modelToUpdate")
+                .setParameter("model", "Mazda")
+                .setParameter("modelToUpdate", "A222S")
+                .executeUpdate();
+
+
+        System.out.println(cars);
         entityManager.persist(new Car("A222S"));
         UsersRepository.getRepository().add(user);
     }

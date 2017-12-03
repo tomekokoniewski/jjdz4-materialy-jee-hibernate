@@ -18,6 +18,9 @@ public class Car {
         this.model = model;
     }
 
+    public Car() {
+    }
+
     public Long getId() {
         return id;
     }
