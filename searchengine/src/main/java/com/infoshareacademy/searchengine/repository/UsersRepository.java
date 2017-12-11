@@ -1,7 +1,7 @@
 package com.infoshareacademy.searchengine.repository;
 
 import com.infoshareacademy.searchengine.domain.Gender;
-import com.infoshareacademy.searchengine.domain.Group;
+import com.infoshareacademy.searchengine.domain.Phone;
 import com.infoshareacademy.searchengine.domain.User;
 
 import java.util.ArrayList;
@@ -19,13 +19,13 @@ public class UsersRepository {
 
     private static void fillRepositoryWithDefaults() {
 
-        Group group1 = new Group();
-        group1.setId(1);
-        group1.setName("G1");
+        Phone phone = new Phone();
+        phone.setId(1l);
+        phone.setNumber("123 123 123");
 
-        Group group2 = new Group();
-        group2.setId(2);
-        group2.setName("G2");
+        Phone phone2 = new Phone();
+        phone2.setId(2l);
+        phone2.setNumber("223 223 223");
 
         User user1 = new User();
         user1.setId(1);
@@ -34,8 +34,8 @@ public class UsersRepository {
         user1.setLogin("janko");
         user1.setAge(21);
         user1.setGender(Gender.MAN);
-        user1.getGroups().add(group1);
-        user1.getGroups().add(group2);
+        user1.getPhones().add(phone);
+        user1.getPhones().add(phone2);
         usersRepository.add(user1);
 
         User user2 = new User();
@@ -45,7 +45,7 @@ public class UsersRepository {
         user2.setLogin("ano");
         user2.setAge(20);
         user2.setGender(Gender.MAN);
-        user2.getGroups().add(group1);
+        user2.getPhones().add(phone);
         usersRepository.add(user2);
 
         User user3 = new User();
@@ -55,7 +55,7 @@ public class UsersRepository {
         user3.setLogin("anmi");
         user3.setAge(20);
         user3.setGender(Gender.WOMAN);
-        user3.getGroups().add(group2);
+        user3.getPhones().add(phone);
         usersRepository.add(user3);
     }
 

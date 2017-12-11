@@ -6,7 +6,6 @@
     <title>search engine [index.jsp]</title>
 </head>
 <body>
-<%@ include file="logged-tab.jsp" %>
 
 <h1>Hello in ISAJEE search engine welcome page!</h1>
 

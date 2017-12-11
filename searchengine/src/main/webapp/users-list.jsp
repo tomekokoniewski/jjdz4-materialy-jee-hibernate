@@ -14,8 +14,8 @@
         Gender: <c:out value="${entry.key.gender}"/><br/>
         Stats: <c:out value="${entry.value}"/><br/>
 
-        <c:forEach var="groupEntry" items="${entry.key.groups}">
-            Group: <c:out value="${groupEntry.id} (${groupEntry.name})"/><br/>
+        <c:forEach var="phoneEntry" items="${entry.key.phones}">
+            Phone: <c:out value="${phoneEntry.id} - (${phoneEntry.number})"/><br/>
         </c:forEach>
     </div>
     <br/><br/>

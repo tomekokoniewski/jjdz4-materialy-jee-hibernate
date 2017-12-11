@@ -4,7 +4,6 @@ import com.infoshareacademy.searchengine.domain.User;
 import com.infoshareacademy.searchengine.repository.UsersRepository;
 
 import javax.ejb.Stateless;
-import javax.interceptor.Interceptors;
 import java.util.ArrayList;
 import java.util.List;
 

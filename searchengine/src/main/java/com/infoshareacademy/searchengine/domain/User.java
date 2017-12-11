@@ -10,7 +10,7 @@ public class User {
     private String login;
     private int age;
     private Gender gender;
-    private List<Group> groups = new ArrayList<>();
+    private List<Phone> phones = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -60,11 +60,11 @@ public class User {
         this.gender = gender;
     }
 
-    public List<Group> getGroups() {
-        return groups;
+    public List<Phone> getPhones() {
+        return phones;
     }
 
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
+    public void setPhones(List<Phone> phones) {
+        this.phones = phones;
     }
 }
