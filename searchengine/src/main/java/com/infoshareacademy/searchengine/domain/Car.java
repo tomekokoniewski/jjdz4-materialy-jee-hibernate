@@ -1,9 +1,12 @@
-package com.infoshareacademy.searchengine.servlets;
+package com.infoshareacademy.searchengine.domain;
 
 import javax.persistence.*;
 
-//TODO remove, temporary entity to test jee entitymanager integration
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "selectAll",query = "from Car "),
+        @NamedQuery(name = "update",query = "update Car set model=:model where model=:modelToUpdate")})
+
 public class Car {
 
     @Id
