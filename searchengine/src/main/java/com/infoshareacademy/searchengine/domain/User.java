@@ -1,11 +1,16 @@
 package com.infoshareacademy.searchengine.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     private int id;
     private String name;
     private String surname;
     private String login;
     private int age;
+    private Gender gender;
+    private List<Phone> phones = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -45,5 +50,21 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public List<Phone> getPhones() {
+        return phones;
+    }
+
+    public void setPhones(List<Phone> phones) {
+        this.phones = phones;
     }
 }

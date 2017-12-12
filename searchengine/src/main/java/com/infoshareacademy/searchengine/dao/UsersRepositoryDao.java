@@ -7,7 +7,7 @@ import java.util.List;
 
 @Local
 public interface UsersRepositoryDao {
-    void addUser(User user);
+    boolean addUser(User user);
     User getUserById(int id);
     User getUserByLogin(String login);
     List<User> getUsersList();

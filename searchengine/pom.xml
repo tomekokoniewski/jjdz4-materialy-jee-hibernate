@@ -30,6 +30,9 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.8-dmr</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
         </dependency>
     </dependencies>
     <properties>
@@ -60,6 +63,16 @@
                         <clientInclude>com/infoshareacademy/searchengine/dao/UsersRepositoryDaoRemote.class
                         </clientInclude>
                     </clientIncludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>1.2.1.Final</version>
+                <configuration>
+                    <java-opts>
+                        <java-opt>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005</java-opt>
+                    </java-opts>
                 </configuration>
             </plugin>
         </plugins>
