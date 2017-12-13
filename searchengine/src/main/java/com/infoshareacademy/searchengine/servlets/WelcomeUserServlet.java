@@ -17,11 +17,10 @@ public class WelcomeUserServlet extends HttpServlet {
             return;
         }
 
-        req.setAttribute("salary", req.getParameter("salary"));
+        req.setAttribute("salary", req.getAttribute("salary"));
         req.setAttribute("name", req.getParameter("name"));
         req.getSession().setAttribute("sessionName", req.getParameter("name"));
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/welcome-user.jsp");
         requestDispatcher.forward(req, resp);
-
     }
 }

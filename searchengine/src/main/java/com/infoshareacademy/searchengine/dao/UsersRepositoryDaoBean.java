@@ -1,9 +1,12 @@
 package com.infoshareacademy.searchengine.dao;
 
 import com.infoshareacademy.searchengine.domain.User;
+import com.infoshareacademy.searchengine.interceptors.AddUserInterceptor;
+import com.infoshareacademy.searchengine.interceptors.AddUserSetGenderInterceptor;
 import com.infoshareacademy.searchengine.repository.UsersRepository;
 
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +14,7 @@ import java.util.List;
 public class UsersRepositoryDaoBean implements UsersRepositoryDao, UsersRepositoryDaoRemote {
 
     @Override
+    @Interceptors({AddUserSetGenderInterceptor.class, AddUserInterceptor.class})
     public boolean addUser(User user) {
         if (!UsersRepository.contains(user)) {
             UsersRepository.getRepository().add(user);

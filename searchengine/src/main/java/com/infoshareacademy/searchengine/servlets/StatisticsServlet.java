@@ -25,12 +25,14 @@ public class StatisticsServlet extends HttpServlet {
 
         Map<User, Integer> statistics = statisticsRepositoryDao.getAllStatistics();
 
+        // needed for first version of servlet, when jsp page has not been prepared
+        // writing output directly to servlet
         PrintWriter printWriter = resp.getWriter();
-        req.setAttribute("list", statistics);
-
         for (Map.Entry<User, Integer> entry : statistics.entrySet()) {
             printWriter.println(entry.getKey().getName() + ": " + entry.getValue());
         }
+
+        req.setAttribute("list", statistics);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/users-list.jsp");
         requestDispatcher.forward(req, resp);

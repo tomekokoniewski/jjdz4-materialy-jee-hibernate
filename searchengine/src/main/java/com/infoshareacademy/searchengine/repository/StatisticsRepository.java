@@ -10,9 +10,7 @@ public class StatisticsRepository {
     private static Map<User, Integer> statisticsRepository = new HashMap<>();
 
     public static Map<User, Integer> getRepository() {
-        if (statisticsRepository.size() == 0) {
-            fillRepositoryWithDefaults();
-        }
+        fillRepositoryWithDefaults();
         return statisticsRepository;
     }
 

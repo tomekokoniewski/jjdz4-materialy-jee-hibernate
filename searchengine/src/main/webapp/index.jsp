@@ -9,6 +9,8 @@
 
 <h1>Hello in ISAJEE search engine welcome page!</h1>
 
+<%@ include file="logged-tab.jsp" %>
+
 <c:if test="${errorMessage != null}">
     <div style="color: red;">${errorMessage}</div>
 </c:if>
