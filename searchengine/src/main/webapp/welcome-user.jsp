@@ -6,7 +6,7 @@
     <title>search engine [welcome-user.jsp]</title>
 </head>
 <body>
-
+<%@ include file="go-back.jsp"%>
 Hello from request scope ${name}!<br/>
 Hello from session scope ${sessionScope.sessionName}!<br/>
 
