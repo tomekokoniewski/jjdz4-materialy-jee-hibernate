@@ -1,15 +1,34 @@
 package com.infoshareacademy.searchengine.domain;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@NamedQueries({
+        @NamedQuery(name = "selectAll",query = "from User "),
+        @NamedQuery(name = "selectUserById",query = "from User where id=:id")
+})
+
+//        @NamedQuery(name = "update",query = "update User set name=:name,surname=:surname,login=:login,age=:age, gender=:gender where =:modelToUpdate")})
+
 public class User {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(nullable=false, unique=true)
     private int id;
+    @Column
     private String name;
+    @Column
     private String surname;
+    @Column
     private String login;
+    @Column
     private int age;
+    @Enumerated(EnumType.STRING)
     private Gender gender;
+    @OneToMany
     private List<Phone> phones = new ArrayList<>();
 
     public String getName() {
